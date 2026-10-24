@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>swasthya_sakhi - Swastha Nari, Sashakta Nari</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Sans+Kannada:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body{font-family:'Outfit','Noto Sans Devanagari','Noto Sans Kannada',sans-serif}
+.glass{backdrop-filter:blur(10px);background:rgba(255,255,255,0.85)}
+.card{border-radius:1.5rem}
+:focus-visible{outline:2px solid #0d9488;outline-offset:2px}
+</style>
+</head>
+<body class="bg-[#FDFCF8] text-[#1A2E2A] antialiased">
+<header class="sticky top-0 z-50 glass border-b border-[#E8E6DE]">
+<div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#0F766E] text-white flex items-center justify-center font-bold">स</div>
+<div>
+<p class="font-bold text-lg leading-none">swasthya_sakhi</p>
+<p id="tagline" class="text-[11px] md:text-xs text-[#5A6E6A] font-medium mt-0.5">Your health. Your story. Your next step.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<select id="langSelect" class="border border-[#D6D3C9] rounded-full px-3 py-1.5 text-xs font-medium bg-white">
+<option value="en">English</option>
+<option value="hi">हिन्दी</option>
+<option value="kn">ಕನ್ನಡ</option>
+</select>
+<button id="emergencyBtn" class="bg-[#E11D48] text-white px-3 py-1.5 rounded-full text-xs font-bold">SOS 112</button>
+</div>
+</div>
+<nav class="max-w-7xl mx-auto px-2 md:px-6 pb-2 overflow-x-auto">
+<div class="flex gap-1.5 text-[11px] md:text-xs font-medium whitespace-nowrap">
+<button data-nav="home" class="nav-btn bg-[#0F766E] text-white px-3.5 py-2 rounded-full">Home</button>
+<button data-nav="dashboard" class="nav-btn bg-white border px-3.5 py-2 rounded-full">Dashboard</button>
+<button data-nav="cycle" class="nav-btn bg-white border px-3.5 py-2 rounded-full">Cycle</button>
+<button data-nav="symptom" class="nav-btn bg-white border px-3.5 py-2 rounded-full">Journal</button>
+<button data-nav="insights" class="nav-btn bg-white border px-3.5 py-2 rounded-full">Insights</button>
+<button data-nav="learn" class="nav-btn bg-white border px-3.5 py-2 rounded-full">Learn</button>
+<button data-nav="mind" class="nav-btn bg-white border px-3.5 py-2 rounded-full">Mind</button>
+<button data-nav="find" class="nav-btn bg-white border px-3.5 py-2 rounded-full">Find Care</button>
+<button data-nav="safety" class="nav-btn bg-white border px-3.5 py-2 rounded-full">Safety</button>
+<button data-nav="privacy" class="nav-btn bg-white border px-3.5 py-2 rounded-full">Privacy</button>
+</div>
+</nav>
+</header>
+<main class="max-w-7xl mx-auto px-4 md:px-6 py-6">
+<section id="sec-home" class="page">
+<div class="grid md:grid-cols-2 gap-8 items-center">
+<div>
+<p class="text-[#0F766E] font-bold text-xs tracking-widest uppercase">Swastha Nari, Sashakta Nari</p>
+<h1 class="text-4xl md:text-6xl font-bold leading-[0.95] mt-2">Your health.<br>Your story.<br><span class="text-[#0F766E]">Your next step.</span></h1>
+<p class="mt-4 text-[#5A6E6A] leading-relaxed" data-i18n="homeIntro">swasthya_sakhi helps you understand your body, track cycles and symptoms, spot patterns, and access trusted health information. Awareness, not diagnosis.</p>
+<div class="mt-6 flex gap-3">
+<button onclick="go('cycle')" class="bg-[#0F766E] text-white px-6 py-3 rounded-full font-medium text-sm" data-i18n="startTracking">Start Tracking →</button>
+<button onclick="go('learn')" class="border border-[#1A2E2A] px-6 py-3 rounded-full font-medium text-sm" data-i18n="exploreHealth">Explore Women's Health</button>
+</div>
+<div class="mt-8 grid grid-cols-2 gap-3">
+<div class="bg-white border p-4 card"><p class="text-xs font-bold text-[#0F766E]">Cycle Tracker</p><p class="text-xs mt-1 text-gray-600" data-i18n="homeCard1">Log periods, see estimates</p></div>
+<div class="bg-white border p-4 card"><p class="text-xs font-bold text-[#7C6BA6]">Symptom Journal</p><p class="text-xs mt-1 text-gray-600" data-i18n="homeCard2">Record pain, mood, sleep</p></div>
+<div class="bg-white border p-4 card"><p class="text-xs font-bold text-[#E07A5F]">Health Insights</p><p class="text-xs mt-1 text-gray-600" data-i18n="homeCard3">Patterns from your data</p></div>
+<div class="bg-white border p-4 card"><p class="text-xs font-bold text-[#5A8F7B]">Mind & Wellbeing</p><p class="text-xs mt-1 text-gray-600" data-i18n="homeCard4">Mood, breathing, self-care</p></div>
+</div>
+</div>
+<div class="bg-[#F0EDE5] p-6 card border">
+<div class="bg-white p-5 rounded-xl">
+<p class="text-xs font-bold text-[#0F766E]" data-i18n="awarenessTitle">Health Awareness Message</p>
+<p class="text-sm mt-2 text-gray-700" data-i18n="awarenessMsg">Irregular cycles, persistent pain, or unusual changes deserve attention. Tracking helps you talk to a clinician with clear information. This platform does not replace professional medical care.</p>
+<p class="text-[11px] mt-3 p-2 bg-[#FFFBEB] rounded border border-[#FDE68A]" data-i18n="disclaimer">Disclaimer: For awareness and education only. Not a medical diagnosis. If you have severe, persistent, or worrying symptoms, please seek professional medical advice promptly.</p>
+</div>
+<div class="mt-4 grid grid-cols-3 gap-3 text-center text-xs">
+<div class="bg-white p-3 rounded-xl border"><p class="font-bold">100%</p><p data-i18n="privateLocal">Private local</p></div>
+<div class="bg-white p-3 rounded-xl border"><p class="font-bold">3</p><p data-i18n="languages">Languages</p></div>
+<div class="bg-white p-3 rounded-xl border"><p class="font-bold">Offline</p><p data-i18n="worksOffline">Works offline</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="sec-dashboard" class="page hidden">
+<h2 class="text-3xl font-bold" data-i18n="dashboardTitle">Health Dashboard</h2>
+<p class="text-sm text-gray-600 mt-1" data-i18n="dashboardDesc">Overview from your saved records.</p>
+<div class="mt-6 grid md:grid-cols-3 gap-4">
+<div class="bg-white border p-5 card"><p class="text-xs font-bold" data-i18n="currentCycle">Current Cycle</p><div id="dashCycle" class="mt-3 text-sm">No records yet</div></div>
+<div class="bg-white border p-5 card"><p class="text-xs font-bold" data-i18n="recentSymptoms">Recent Symptoms</p><div id="dashSymptoms" class="mt-3 text-sm">No symptoms logged</div></div>
+<div class="bg-white border p-5 card"><p class="text-xs font-bold" data-i18n="reminders">Reminders</p><div class="mt-3 text-sm">Add your first entry to see insights</div></div>
+</div>
+<div class="mt-6 bg-white border p-5 card">
+<p class="text-xs font-bold" data-i18n="trendTitle">Trends over time</p>
+<canvas id="trendCanvas" width="600" height="200" class="w-full mt-3 border rounded"></canvas>
+</div>
+</section>
+
+<section id="sec-cycle" class="page hidden">
+<h2 class="text-3xl font-bold" data-i18n="cycleTitle">Cycle Tracker</h2>
+<div class="mt-6 grid md:grid-cols-2 gap-6">
+<div class="bg-white border p-5 card">
+<p class="font-semibold text-sm" data-i18n="addCycle">Add Cycle Record</p>
+<div class="mt-4 grid gap-3">
+<label class="text-xs"><span data-i18n="startDate">Start Date</span><input id="cycleStart" type="date" class="mt-1 w-full border rounded-lg p-2.5 text-sm"></label>
+<label class="text-xs"><span data-i18n="endDate">End Date (optional)</span><input id="cycleEnd" type="date" class="mt-1 w-full border rounded-lg p-2.5 text-sm"></label>
+<label class="text-xs"><span data-i18n="flow">Flow</span><select id="cycleFlow" class="mt-1 w-full border rounded-lg p-2.5 text-sm"><option value="light">Light</option><option value="medium">Medium</option><option value="heavy">Heavy</option></select></label>
+<label class="text-xs"><span data-i18n="pain">Pain (0-10)</span><input id="cyclePain" type="range" min="0" max="10" value="0" class="w-full"><span id="painVal" class="text-xs">0</span></label>
+<label class="text-xs"><span data-i18n="notes">Notes</span><textarea id="cycleNotes" class="mt-1 w-full border rounded-lg p-2.5 text-sm h-20"></textarea></label>
+<button id="saveCycle" class="bg-[#0F766E] text-white py-2.5 rounded-full text-sm font-medium" data-i18n="saveRecord">Save Record</button>
+<p id="cycleMsg" class="text-xs mt-2"></p>
+</div>
+</div>
+<div class="bg-white border p-5 card">
+<p class="font-semibold text-sm" data-i18n="history">History & Estimates</p>
+<div id="cycleList" class="mt-3 space-y-2 max-h-80 overflow-auto"></div>
+<div id="cycleEstimate" class="mt-4 p-3 bg-[#F0FDF4] border border-[#BBF7D0] rounded-xl text-xs"></div>
+</div>
+</div>
+</section>
+
+<section id="sec-symptom" class="page hidden">
+<h2 class="text-3xl font-bold" data-i18n="journalTitle">Symptom Journal</h2>
+<div class="mt-6 grid md:grid-cols-2 gap-6">
+<div class="bg-white border p-5 card">
+<p class="font-semibold text-sm" data-i18n="addSymptom">Add Symptom Entry</p>
+<div class="mt-4 grid gap-3">
+<label class="text-xs"><span data-i18n="dateTime">Date & Time</span><input id="symDate" type="datetime-local" class="mt-1 w-full border rounded-lg p-2.5 text-sm"></label>
+<label class="text-xs"><span data-i18n="category">Category</span><select id="symCat" class="mt-1 w-full border rounded-lg p-2.5 text-sm"><option value="pain">Pain / Cramps</option><option value="flow">Bleeding</option><option value="mood">Mood</option><option value="energy">Energy</option><option value="sleep">Sleep</option><option value="other">Other</option></select></label>
+<label class="text-xs"><span data-i18n="desc">Description</span><input id="symDesc" type="text" class="mt-1 w-full border rounded-lg p-2.5 text-sm" placeholder="e.g. lower back pain"></label>
+<label class="text-xs"><span data-i18n="severity">Pain / Discomfort 0-10</span><input id="symPain" type="range" min="0" max="10" value="0" class="w-full"><span id="symPainVal">0</span></label>
+<label class="text-xs"><span data-i18n="mood">Mood</span><select id="symMood" class="mt-1 w-full border rounded-lg p-2.5 text-sm"><option>Calm</option><option>Happy</option><option>Irritable</option><option>Anxious</option><option>Low</option></select></label>
+<label class="text-xs"><span data-i18n="tags">Discussion tags (optional)</span><input id="symTags" type="text" class="mt-1 w-full border rounded-lg p-2.5 text-sm" placeholder="PCOS, thyroid, irregular periods"></label>
+<p class="text-[10px] text-gray-500" data-i18n="tagsNote">Tags are for you to discuss with clinician, not a diagnosis.</p>
+<button id="saveSym" class="bg-[#0F766E] text-white py-2.5 rounded-full text-sm font-medium" data-i18n="saveEntry">Save Entry</button>
+<p id="symMsg" class="text-xs mt-2"></p>
+</div>
+</div>
+<div class="bg-white border p-5 card">
+<div class="flex justify-between items-center"><p class="font-semibold text-sm" data-i18n="entries">Entries</p><select id="filterCat" class="border rounded-full px-2 py-1 text-xs"><option value="all">All</option><option value="pain">Pain</option><option value="mood">Mood</option><option value="sleep">Sleep</option></select></div>
+<div id="symList" class="mt-3 space-y-2 max-h-[500px] overflow-auto"></div>
+</div>
+</div>
+</section>
+
+<section id="sec-insights" class="page hidden">
+<h2 class="text-3xl font-bold" data-i18n="insightsTitle">Health Insights</h2>
+<p class="text-sm text-gray-600 mt-1" data-i18n="insightsDesc">Rule-based summaries from your own records. Not a diagnosis.</p>
+<div id="insightsBox" class="mt-6 grid gap-4"></div>
+</section>
+
+<section id="sec-learn" class="page hidden">
+<h2 class="text-3xl font-bold" data-i18n="learnTitle">Learn and Explore</h2>
+<div class="mt-4 flex gap-2 flex-wrap">
+<button data-learn="all" class="learnF bg-[#0F766E] text-white px-3 py-1.5 rounded-full text-xs">All</button>
+<button data-learn="menstrual" class="learnF bg-white border px-3 py-1.5 rounded-full text-xs">Menstrual</button>
+<button data-learn="pcos" class="learnF bg-white border px-3 py-1.5 rounded-full text-xs">PCOS</button>
+<button data-learn="endo" class="learnF bg-white border px-3 py-1.5 rounded-full text-xs">Endometriosis</button>
+<button data-learn="thyroid" class="learnF bg-white border px-3 py-1.5 rounded-full text-xs">Thyroid</button>
+<button data-learn="nutrition" class="learnF bg-white border px-3 py-1.5 rounded-full text-xs">Nutrition</button>
+</div>
+<div id="learnGrid" class="mt-6 grid md:grid-cols-2 gap-4"></div>
+</section>
+
+<section id="sec-mind" class="page hidden">
+<h2 class="text-3xl font-bold" data-i18n="mindTitle">Mind and Wellbeing</h2>
+<div class="mt-6 grid md:grid-cols-2 gap-6">
+<div class="bg-white border p-5 card">
+<p class="font-semibold text-sm" data-i18n="breathing">Breathing Exercise (4-4-4)</p>
+<div class="mt-4 text-center">
+<div id="breathCircle" class="w-24 h-24 rounded-full bg-[#CCFBF1] mx-auto flex items-center justify-center font-bold">Breathe</div>
+<p id="breathText" class="text-xs mt-3">Click start, follow guidance</p>
+<button id="breathBtn" class="mt-3 border px-4 py-1.5 rounded-full text-xs" data-i18n="start">Start</button>
+</div>
+</div>
+<div class="bg-white border p-5 card">
+<p class="font-semibold text-sm" data-i18n="moodTrack">Mood & Self-care</p>
+<ul class="mt-3 text-xs list-disc pl-5 space-y-2 text-gray-700">
+<li data-i18n="self1">Track sleep, water, gentle movement</li>
+<li data-i18n="self2">Write 1 kind note to yourself daily</li>
+<li data-i18n="self3">Talk to trusted people when low</li>
+<li data-i18n="self4">If you feel unsafe, use Safety section</li>
+</ul>
+<div class="mt-4 p-3 bg-[#FFF7ED] border rounded-xl text-xs" data-i18n="supportMsg">You deserve support. If low mood persists >2 weeks, please seek professional help.</div>
+</div>
+</div>
+</section>
+
+<section id="sec-find" class="page hidden">
+<h2 class="text-3xl font-bold" data-i18n="findTitle">Find Healthcare Services</h2>
+<div class="mt-6 bg-white border p-5 card">
+<p class="text-sm text-gray-600" data-i18n="findDesc">Enter your city/PIN code. We create a map search link. No fake listings.</p>
+<div class="mt-4 flex gap-2">
+<input id="locInput" type="text" placeholder="e.g. Udupi, 576101" class="flex-1 border rounded-full px-4 py-2.5 text-sm">
+<button id="searchCare" class="bg-[#0F766E] text-white px-5 py-2.5 rounded-full text-sm" data-i18n="search">Search</button>
+</div>
+<div id="findResults" class="mt-4 text-sm"></div>
+</div>
+</section>
+
+<section id="sec-safety" class="page hidden">
+<h2 class="text-3xl font-bold" data-i18n="safetyTitle">Safety and Emergency Help</h2>
+<div class="mt-6 grid md:grid-cols-2 gap-6">
+<div class="bg-[#FEF2F2] border border-[#FECACA] p-5 card">
+<p class="font-bold text-[#991B1B]" data-i18n="emergency">Emergency</p>
+<p class="text-sm mt-2" data-i18n="emergencyDesc">If you or someone is in immediate danger, call emergency services.</p>
+<a href="tel:112" class="mt-4 inline-block bg-[#DC2626] text-white px-6 py-3 rounded-full font-bold text-sm">Call 112 - India Emergency</a>
+</div>
+<div class="bg-white border p-5 card">
+<p class="font-semibold text-sm" data-i18n="sosTitle">Prepare SOS Message</p>
+<textarea id="sosMsg" class="mt-3 w-full border rounded-xl p-3 text-sm h-24">I need help. I am at [add location]. Please contact me. - swasthya_sakhi user</textarea>
+<button id="copySOS" class="mt-2 border px-4 py-1.5 rounded-full text-xs" data-i18n="copyMsg">Copy Message</button>
+<p class="text-[11px] mt-3 text-gray-500" data-i18n="sosPrivacy">Never share location without consent. Review before sending.</p>
+</div>
+</div>
+<div class="mt-6 bg-white border p-5 card">
+<p class="font-semibold text-sm" data-i18n="whenSeek">When to seek urgent care</p>
+<ul class="mt-2 text-xs list-disc pl-5 space-y-1 text-gray-700">
+<li data-i18n="urgent1">Very heavy bleeding soaking pads hourly + dizziness</li>
+<li data-i18n="urgent2">Severe persistent abdominal pain, fever, vomiting</li>
+<li data-i18n="urgent3">Thoughts of harming self - reach trusted person / 112 / 1800-599-0019 Kiran helpline</li>
+</ul>
+</div>
+</section>
+
+<section id="sec-privacy" class="page hidden">
+<h2 class="text-3xl font-bold" data-i18n="privacyTitle">Privacy and Settings</h2>
+<div class="mt-6 grid md:grid-cols-2 gap-6">
+<div class="bg-white border p-5 card">
+<p class="font-semibold text-sm" data-i18n="dataStored">Where is data stored?</p>
+<p class="text-xs mt-2 text-gray-600" data-i18n="storageExplain">Prototype stores records in browser localStorage only. Not encrypted, stays on this device. No data sent to server.</p>
+<div class="mt-4 flex gap-2 flex-wrap">
+<button id="exportJSON" class="border px-3 py-1.5 rounded-full text-xs" data-i18n="exportJSON">Export JSON</button>
+<button id="exportCSV" class="border px-3 py-1.5 rounded-full text-xs" data-i18n="exportCSV">Export CSV</button>
+<button id="clearAll" class="bg-[#DC2626] text-white px-3 py-1.5 rounded-full text-xs" data-i18n="clearAll">Clear All Local Data</button>
+</div>
+<p id="privacyMsg" class="text-xs mt-2"></p>
+</div>
+<div class="bg-white border p-5 card">
+<p class="font-semibold text-sm" data-i18n="supportAssistant">Rule-Based Health Support Assistant</p>
+<div class="mt-3 border rounded-xl h-40 overflow-auto p-3 text-xs space-y-2" id="chatBox">
+<p class="bg-gray-100 p-2 rounded">Hi, I am swasthya_sakhi assistant (rule-based). Ask how to track, or what cramps mean in general.</p>
+</div>
+<div class="mt-2 flex gap-2">
+<input id="chatInput" type="text" placeholder="e.g. How to use cycle tracker?" class="flex-1 border rounded-full px-3 py-2 text-xs">
+<button id="chatSend" class="bg-[#0F766E] text-white px-4 py-2 rounded-full text-xs">Send</button>
+</div>
+<p class="text-[10px] mt-2 text-gray-500" data-i18n="assistantNote">This is rule-based, not a doctor, not AI diagnosis.</p>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="mt-10 border-t bg-white py-6 px-6 text-[11px] text-gray-500">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-2">
+<p>© swasthya_sakhi - स्वस्था नारी, सशक्त नारी - Your health. Your story. Your next step. | For awareness, not medical diagnosis.</p>
+<p><span data-i18n="footerPrivacy">Privacy: Local storage only</span> | <span data-i18n="footerSafety">Safety: Call 112</span></p>
+</div>
+</footer>
+
+<script>
+const i18n = {
+en: {tagline:"Your health. Your story. Your next step.",homeIntro:"swasthya_sakhi helps you understand your body, track cycles and symptoms, spot patterns, and access trusted health information. Awareness, not diagnosis.",startTracking:"Start Tracking →",exploreHealth:"Explore Women's Health",homeCard1:"Log periods, see estimates",homeCard2:"Record pain, mood, sleep",homeCard3:"Patterns from your data",homeCard4:"Mood, breathing, self-care",awarenessTitle:"Health Awareness Message",awarenessMsg:"Irregular cycles, persistent pain, or unusual changes deserve attention. Tracking helps you talk to a clinician with clear information. This platform does not replace professional medical care.",disclaimer:"Disclaimer: For awareness and education only. Not a medical diagnosis.",privateLocal:"Private local",languages:"Languages",worksOffline:"Works offline",dashboardTitle:"Health Dashboard",dashboardDesc:"Overview from your saved records.",currentCycle:"Current Cycle",recentSymptoms:"Recent Symptoms",reminders:"Reminders",trendTitle:"Trends over time",addCycle:"Add Cycle Record",startDate:"Start Date",endDate:"End Date (optional)",flow:"Flow",pain:"Pain (0-10)",notes:"Notes",saveRecord:"Save Record",history:"History & Estimates",addSymptom:"Add Symptom Entry",dateTime:"Date & Time",category:"Category",desc:"Description",severity:"Pain / Discomfort 0-10",mood:"Mood",tags:"Discussion tags (optional)",tagsNote:"Tags are for you to discuss with clinician, not a diagnosis.",saveEntry:"Save Entry",entries:"Entries",insightsTitle:"Health Insights",insightsDesc:"Rule-based summaries from your own records. Not a diagnosis.",learnTitle:"Learn and Explore",mindTitle:"Mind and Wellbeing",breathing:"Breathing Exercise (4-4-4)",start:"Start",breathNote:"This is a wellness exercise, not a treatment.",moodTrack:"Mood & Self-care",self1:"Track sleep, water, gentle movement",self2:"Write 1 kind note to yourself daily",self3:"Talk to trusted people when low",self4:"If you feel unsafe, use Safety section",supportMsg:"You deserve support. If low mood persists >2 weeks, please seek professional help.",findTitle:"Find Healthcare Services",findDesc:"Enter your city/PIN code. We create a map search link. No fake listings.",search:"Search",locExplain:"We do not access your location unless you type it.",safetyTitle:"Safety and Emergency Help",emergency:"Emergency",emergencyDesc:"If you or someone is in immediate danger, call emergency services.",emergencyNote:"This link opens phone dialer.",sosTitle:"Prepare SOS Message",sosDesc:"This prepares a message for you to review and send. It does NOT auto-send.",copyMsg:"Copy Message",sosPrivacy:"Never share location without consent.",whenSeek:"When to seek urgent care",urgent1:"Very heavy bleeding soaking pads hourly + dizziness",urgent2:"Severe persistent abdominal pain, fever, vomiting",urgent3:"Thoughts of harming self - reach trusted person / 112 / 1800-599-0019 Kiran helpline",privacyTitle:"Privacy and Settings",dataStored:"Where is data stored?",storageExplain:"Prototype stores records in browser localStorage only. Not encrypted, stays on this device.",exportJSON:"Export JSON",exportCSV:"Export CSV",clearAll:"Clear All Local Data",supportAssistant:"Rule-Based Health Support Assistant",assistantNote:"This is rule-based, not a doctor, not AI diagnosis.",footerPrivacy:"Privacy: Local storage only",footerSafety:"Safety: Call 112"},
+hi: {tagline:"स्वस्था नारी, सशक्त नारी",homeIntro:"swasthya_sakhi आपको अपने शरीर को समझने, मासिक धर्म और लक्षणों को ट्रैक करने, पैटर्न पहचानने और भरोसेमंद स्वास्थ्य जानकारी पाने में मदद करता है।",startTracking:"ट्रैकिंग शुरू करें →",exploreHealth:"महिला स्वास्थ्य देखें",homeCard1:"पीरियड लॉग करें, अनुमान देखें",homeCard2:"दर्द, मनोदशा, नींद रिकॉर्ड करें",homeCard3:"आपके डेटा से पैटर्न",homeCard4:"मनोदशा, श्वास, देखभाल",awarenessTitle:"स्वास्थ्य जागरूकता संदेश",awarenessMsg:"अनियमित चक्र, लगातार दर्द, या असामान्य बदलाव पर ध्यान देना जरूरी है।",disclaimer:"अस्वीकरण: केवल जागरूकता और शिक्षा के लिए। चिकित्सीय निदान नहीं।",privateLocal:"निजी स्थानीय",languages:"भाषाएँ",worksOffline:"ऑफलाइन काम करता है",dashboardTitle:"स्वास्थ्य डैशबोर्ड",dashboardDesc:"आपके सहेजे गए रिकॉर्ड से अवलोकन।",currentCycle:"वर्तमान चक्र",recentSymptoms:"हाल के लक्षण",reminders:"रिमाइंडर",trendTitle:"समय के साथ रुझान",addCycle:"चक्र रिकॉर्ड जोड़ें",startDate:"प्रारंभ तिथि",endDate:"समाप्ति तिथि (वैकल्पिक)",flow:"प्रवाह",pain:"दर्द (0-10)",notes:"नोट्स",saveRecord:"रिकॉर्ड सहेजें",history:"इतिहास और अनुमान",addSymptom:"लक्षण प्रविष्टि जोड़ें",dateTime:"दिनांक और समय",category:"श्रेणी",desc:"विवरण",severity:"दर्द / असुविधा 0-10",mood:"मनोदशा",tags:"चर्चा टैग (वैकल्पिक)",tagsNote:"टैग डॉक्टर से चर्चा के लिए हैं, निदान नहीं।",saveEntry:"प्रविष्टि सहेजें",entries:"प्रविष्टियाँ",insightsTitle:"स्वास्थ्य अंतर्दृष्टि",insightsDesc:"आपके अपने रिकॉर्ड से नियम-आधारित सारांश।",learnTitle:"सीखें और एक्सप्लोर करें",mindTitle:"मन और कल्याण",breathing:"श्वास व्यायाम (4-4-4)",start:"प्रारंभ",breathNote:"यह एक कल्याण अभ्यास है, उपचार नहीं।",moodTrack:"मनोदशा और आत्म-देखभाल",self1:"नींद, पानी, हल्की गतिविधि ट्रैक करें",self2:"रोज़ अपने लिए एक दयालु नोट लिखें",self3:"कम महसूस होने पर भरोसेमंद लोगों से बात करें",self4:"यदि असुरक्षित महसूस करें तो सुरक्षा अनुभाग का उपयोग करें",supportMsg:"आप सहयोग की हकदार हैं। यदि 2 सप्ताह से अधिक उदासी बनी रहे तो पेशेवर मदद लें।",findTitle:"स्वास्थ्य सेवाएँ खोजें",findDesc:"अपना शहर/पिन कोड दर्ज करें। हम मैप खोज लिंक बनाते हैं।",search:"खोजें",locExplain:"हम आपके स्थान तक पहुँच नहीं करते।",safetyTitle:"सुरक्षा और आपातकालीन सहायता",emergency:"आपातकाल",emergencyDesc:"यदि आप या कोई तत्काल खतरे में है तो आपातकालीन सेवाओं को कॉल करें।",emergencyNote:"यह लिंक फोन डायलर खोलता है।",sosTitle:"SOS संदेश तैयार करें",sosDesc:"यह संदेश आपके समीक्षा और भेजने के लिए तैयार करता है।",copyMsg:"संदेश कॉपी करें",sosPrivacy:"बिना सहमति के स्थान साझा न करें।",whenSeek:"तुरंत देखभाल कब लें",urgent1:"बहुत भारी ब्लीडिंग + चक्कर",urgent2:"गंभीर पेट दर्द, बुखार, उल्टी",urgent3:"खुद को नुकसान के विचार - 112 / 1800-599-0019",privacyTitle:"गोपनीयता और सेटिंग्स",dataStored:"डेटा कहाँ संग्रहीत है?",storageExplain:"प्रोटोटाइप रिकॉर्ड केवल ब्राउज़र लोकल स्टोरेज में रखता है।",exportJSON:"JSON निर्यात",exportCSV:"CSV निर्यात",clearAll:"सभी स्थानीय डेटा साफ़ करें",supportAssistant:"नियम-आधारित स्वास्थ्य सहायक",assistantNote:"यह नियम-आधारित है, डॉक्टर नहीं।",footerPrivacy:"गोपनीयता: केवल स्थानीय स्टोरेज",footerSafety:"सुरक्षा: 112 कॉल करें"},
+kn: {tagline:"ಸ್ವಸ್ಥ ನಾರಿ, ಸಶಕ್ತ ನಾರಿ",homeIntro:"swasthya_sakhi ನಿಮ್ಮ ದೇಹವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ।",startTracking:"ಟ್ರ್ಯಾಕಿಂಗ್ ಪ್ರಾರಂಭಿಸಿ →",exploreHealth:"ಮಹಿಳಾ ಆರೋಗ್ಯ ಅನ್ವೇಷಿಸಿ",homeCard1:"ಪೀರಿಯಡ್ ದಾಖಲಿಸಿ",homeCard2:"ನೋವು, ಮನಸ್ಥಿತಿ, ನಿದ್ರೆ",homeCard3:"ನಿಮ್ಮ ಡೇಟಾದಿಂದ ಮಾದರಿಗಳು",homeCard4:"ಮನಸ್ಥಿತಿ, ಉಸಿರಾಟ",awarenessTitle:"ಆರೋಗ್ಯ ಜಾಗೃತಿ ಸಂದೇಶ",awarenessMsg:"ಅನಿಯಮಿತ ಚಕ್ರ, ನಿರಂತರ ನೋವುಗಳಿಗೆ ಗಮನ ಬೇಕು।",disclaimer:"ಹಕ್ಕು ನಿರಾಕರಣೆ: ಜಾಗೃತಿ ಮತ್ತು ಶಿಕ್ಷಣಕ್ಕಾಗಿ ಮಾತ್ರ।",privateLocal:"ಖಾಸಗಿ ಸ್ಥಳೀಯ",languages:"ಭಾಷೆಗಳು",worksOffline:"ಆಫ್‌ಲೈನ್",dashboardTitle:"ಆರೋಗ್ಯ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",dashboardDesc:"ನಿಮ್ಮ ದಾಖಲೆಗಳಿಂದ ಅವಲೋಕನ।",currentCycle:"ಪ್ರಸ್ತುತ ಚಕ್ರ",recentSymptoms:"ಇತ್ತೀಚಿನ ಲಕ್ಷಣಗಳು",reminders:"ಜ್ಞಾಪನೆಗಳು",trendTitle:"ಪ್ರವೃತ್ತಿಗಳು",addCycle:"ಚಕ್ರ ದಾಖಲೆ ಸೇರಿಸಿ",startDate:"ಪ್ರಾರಂಭ ದಿನಾಂಕ",endDate:"ಅಂತ್ಯ ದಿನಾಂಕ",flow:"ಹರಿವು",pain:"ನೋವು",notes:"ಟಿಪ್ಪಣಿಗಳು",saveRecord:"ದಾಖಲೆ ಉಳಿಸಿ",history:"ಇತಿಹಾಸ",addSymptom:"ಲಕ್ಷಣ ನಮೂದು ಸೇರಿಸಿ",dateTime:"ದಿನಾಂಕ ಮತ್ತು ಸಮಯ",category:"ವರ್ಗ",desc:"ವಿವರಣೆ",severity:"ನೋವು 0-10",mood:"ಮನಸ್ಥಿತಿ",tags:"ಚರ್ಚೆ ಟ್ಯಾಗ್‌ಗಳು",tagsNote:"ಟ್ಯಾಗ್‌ಗಳು ಚರ್ಚೆಗಾಗಿ।",saveEntry:"ನಮೂದು ಉಳಿಸಿ",entries:"ನಮೂದುಗಳು",insightsTitle:"ಆರೋಗ್ಯ ಒಳನೋಟಗಳು",insightsDesc:"ನಿಯಮ ಆಧಾರಿತ ಸಾರಾಂಶ।",learnTitle:"ಕಲಿಯಿರಿ",mindTitle:"ಮನಸ್ಸು ಮತ್ತು ಯೋಗಕ್ಷೇಮ",breathing:"ಉಸಿರಾಟದ ವ್ಯಾಯಾಮ",start:"ಪ್ರಾರಂಭಿಸಿ",breathNote:"ಇದು ಯೋಗಕ್ಷೇಮ ವ್ಯಾಯಾಮ।",moodTrack:"ಮನಸ್ಥಿತಿ",self1:"ನಿದ್ರೆ, ನೀರು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ",self2:"ದಯೆಯ ಟಿಪ್ಪಣಿ ಬರೆಯಿರಿ",self3:"ವಿಶ್ವಾಸಾರ್ಹ ಜನರೊಂದಿಗೆ ಮಾತನಾಡಿ",self4:"ಅಸುರಕ್ಷಿತ ಅನಿಸಿದರೆ ಸುರಕ್ಷತೆ ಬಳಸಿ",supportMsg:"ನೀವು ಬೆಂಬಲಕ್ಕೆ ಅರ್ಹರು।",findTitle:"ಆರೋಗ್ಯ ಸೇವೆಗಳನ್ನು ಹುಡುಕಿ",findDesc:"ನಗರ/ಪಿನ್ ನಮೂದಿಸಿ।",search:"ಹುಡುಕಿ",locExplain:"ನೀವು ಟೈಪ್ ಮಾಡುವವರೆಗೆ ಸ್ಥಳ ಪ್ರವೇಶವಿಲ್ಲ।",safetyTitle:"ಸುರಕ್ಷತೆ",emergency:"ತುರ್ತು",emergencyDesc:"ತಕ್ಷಣದ ಅಪಾಯದಲ್ಲಿದ್ದರೆ ಕರೆ ಮಾಡಿ।",emergencyNote:"ಫೋನ್ ಡಯಲರ್ ತೆರೆಯುತ್ತದೆ।",sosTitle:"SOS ಸಂದೇಶ",sosDesc:"ವಿಮರ್ಶೆ ಮತ್ತು ಕಳುಹಿಸಲು ಸಂದೇಶ।",copyMsg:"ನಕಲಿಸಿ",sosPrivacy:"ಒಪ್ಪಿಗೆ ಇಲ್ಲದೆ ಹಂಚಿಕೊಳ್ಳಬೇಡಿ।",whenSeek:"ತುರ್ತು ಆರೈಕೆ ಯಾವಾಗ",urgent1:"ತುಂಬಾ ಭಾರೀ ರಕ್ತಸ್ರಾವ",urgent2:"ತೀವ್ರ ಹೊಟ್ಟೆ ನೋವು",urgent3:"ಹಾನಿ ಆಲೋಚನೆಗಳು - 112",privacyTitle:"ಗೌಪ್ಯತೆ",dataStored:"ಡೇಟಾ ಎಲ್ಲಿ?",storageExplain:"ಲೋಕಲ್ ಸ್ಟೋರೇಜ್ ಮಾತ್ರ।",exportJSON:"JSON ರಫ್ತು",exportCSV:"CSV ರಫ್ತು",clearAll:"ಎಲ್ಲಾ ತೆರವುಗೊಳಿಸಿ",supportAssistant:"ನಿಯಮ ಆಧಾರಿತ ಸಹಾಯಕ",assistantNote:"ನಿಯಮ ಆಧಾರಿತ।",footerPrivacy:"ಗೌಪ್ಯತೆ: ಸ್ಥಳೀಯ",footerSafety:"ಸುರಕ್ಷತೆ: 112"}
+};
+const learnData = [
+{cat:"menstrual", title:"Understanding Menstrual Cycles", en:"A normal cycle is 21-35 days. Variation is common. Track length, flow, pain to see your pattern. Persistent irregularity >3 months deserves medical discussion.", hi:"सामान्य चक्र 21-35 दिन होता है। भिन्नता सामान्य है।", kn:"ಸಾಮಾನ್ಯ ಚಕ್ರ 21-35 ದಿನಗಳು.", link:"https://www.who.int/health-topics/menstrual-health"},
+{cat:"pcos", title:"PCOS Awareness", en:"PCOS may include irregular periods, acne, weight changes, excess hair. Diagnosis needs clinician assessment.", hi:"PCOS में अनियमित पीरियड्स, मुंहासे शामिल हो सकते हैं।", kn:"PCOS ಅನಿಯಮಿತ ಪೀರಿಯಡ್ಸ್ ಒಳಗೊಂಡಿರಬಹುದು.", link:"https://www.who.int/news-room/fact-sheets/detail/polycystic-ovary-syndrome"},
+{cat:"endo", title:"Endometriosis Awareness", en:"Severe period pain that disrupts daily life is not 'normal'. Keeping a pain diary helps clinicians.", hi:"गंभीर पीरियड दर्द 'सामान्य' नहीं है।", kn:"ತೀವ್ರ ಪೀರಿಯಡ್ ನೋವು 'ಸಾಮಾನ್ಯ' ಅಲ್ಲ.", link:"https://www.who.int/news-room/fact-sheets/detail/endometriosis"},
+{cat:"thyroid", title:"Thyroid Health", en:"Thyroid affects cycle, weight, energy, mood, skin. TSH test is common first step.", hi:"थायरॉइड चक्र, वजन, ऊर्जा को प्रभावित करता है।", kn:"ಥೈರಾಯ್ಡ್ ಚಕ್ರದ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುತ್ತದೆ.", link:"https://www.who.int/health-topics/thyroid-disorders"},
+{cat:"nutrition", title:"Anaemia & Nutrition", en:"Fatigue, pale skin, dizziness may relate to anaemia. Common in women. Balanced iron-rich foods help.", hi:"थकान, पीली त्वचा एनीमिया से संबंधित हो सकते हैं।", kn:"ಆಯಾಸ ರಕ್ತಹೀನತೆಗೆ ಸಂಬಂಧಿಸಿರಬಹುದು.", link:"https://www.who.int/health-topics/anaemia"}
+];
+let cycles = JSON.parse(localStorage.getItem('ss_cycles')||'[]');
+let symptoms = JSON.parse(localStorage.getItem('ss_symptoms')||'[]');
+let currentLang = localStorage.getItem('ss_lang')||'en';
+function t(k){return (i18n[currentLang]&&i18n[currentLang][k])||i18n['en'][k]||k;}
+function applyLanguage(lang){
+ currentLang=lang; localStorage.setItem('ss_lang',lang);
+ document.getElementById('tagline').innerText=t('tagline');
+ document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n'); if(i18n[lang]&&i18n[lang][k]) el.innerText=i18n[lang][k];});
+ const navMap={home:{en:'Home',hi:'होम',kn:'ಮುಖಪುಟ'},dashboard:{en:'Dashboard',hi:'डैशबोर्ड',kn:'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್'},cycle:{en:'Cycle',hi:'चक्र',kn:'ಚಕ್ರ'},symptom:{en:'Journal',hi:'डायरी',kn:'ದಿನಚರಿ'},insights:{en:'Insights',hi:'अंतर्दृष्टि',kn:'ಒಳನೋಟ'},learn:{en:'Learn',hi:'सीखें',kn:'ಕಲಿಯಿರಿ'},mind:{en:'Mind',hi:'मन',kn:'ಮನಸ್ಸು'},find:{en:'Find Care',hi:'सेवा खोजें',kn:'ಆರೈಕೆ ಹುಡುಕಿ'},safety:{en:'Safety',hi:'सुरक्षा',kn:'ಸುರಕ್ಷತೆ'},privacy:{en:'Privacy',hi:'गोपनीयता',kn:'ಗೌಪ್ಯತೆ'}};
+ document.querySelectorAll('.nav-btn').forEach(b=>{const p=b.dataset.nav; if(navMap[p]&&navMap[p][lang]) b.innerText=navMap[p][lang];});
+ renderCycleList(); renderSymList(); renderInsights(); renderLearn(); renderDashboard();
+}
+function go(page){
+ document.querySelectorAll('.page').forEach(s=>s.classList.add('hidden'));
+ document.getElementById('sec-'+page).classList.remove('hidden');
+ document.querySelectorAll('.nav-btn').forEach(b=>{if(b.dataset.nav===page){b.classList.add('bg-[#0F766E]','text-white'); b.classList.remove('bg-white','border');} else{b.classList.remove('bg-[#0F766E]','text-white'); b.classList.add('bg-white','border');}});
+ window.scrollTo(0,0);
+}
+document.getElementById('cyclePain').addEventListener('input', e=>{document.getElementById('painVal').innerText=e.target.value;});
+document.getElementById('saveCycle').addEventListener('click', ()=>{
+ const start=document.getElementById('cycleStart').value; const end=document.getElementById('cycleEnd').value; const flow=document.getElementById('cycleFlow').value; const pain=document.getElementById('cyclePain').value; const notes=document.getElementById('cycleNotes').value; const msg=document.getElementById('cycleMsg');
+ if(!start){msg.innerText=t('startDate')+' required'; msg.style.color='red'; return;}
+ if(end && new Date(end)<new Date(start)){msg.innerText='End date cannot be before start'; msg.style.color='red'; return;}
+ if(cycles.some(c=>c.start===start)){msg.innerText='Record exists'; msg.style.color='red'; return;}
+ cycles.push({id:Date.now(), start, end, flow, pain:parseInt(pain), notes}); localStorage.setItem('ss_cycles',JSON.stringify(cycles)); msg.innerText='Saved!'; msg.style.color='green'; renderCycleList(); renderDashboard();
+});
+function renderCycleList(){
+ const list=document.getElementById('cycleList'); const est=document.getElementById('cycleEstimate');
+ if(cycles.length===0){list.innerHTML='<p class=text-xs text-gray-500>Empty - add first record</p>'; est.innerHTML='Add at least 2 cycles to estimate next period. Estimates are approximate.'; return;}
+ cycles.sort((a,b)=>new Date(b.start)-new Date(a.start));
+ list.innerHTML=cycles.map(c=>`<div class="flex justify-between items-center border p-2 rounded-lg text-xs"><div><b>${c.start}</b> to ${c.end||'ongoing'} | ${c.flow} | pain ${c.pain}</div><div><button onclick="deleteCycle(${c.id})" class="text-red-500 px-2">Delete</button></div></div>`).join('');
+ if(cycles.length>=2){
+   const sorted=[...cycles].sort((a,b)=>new Date(a.start)-new Date(b.start)); let diffs=[]; for(let i=1;i<sorted.length;i++) diffs.push((new Date(sorted[i].start)-new Date(sorted[i-1].start))/(1000*60*60*24));
+   const avg=Math.round(diffs.reduce((a,b)=>a+b,0)/diffs.length); const last=new Date(sorted[sorted.length-1].start); last.setDate(last.getDate()+avg); const nextStr=last.toISOString().split('T')[0];
+   est.innerHTML=`Based on ${diffs.length} intervals, average cycle ~${avg} days. Estimated next period: <b>${nextStr}</b>. This is an estimate, cycles naturally vary.`;
+   const dash=document.getElementById('dashCycle'); if(dash) dash.innerHTML=`Last: ${sorted[sorted.length-1].start}<br>Avg: ${avg} days<br>Next est: ${nextStr}`;
+ } else { est.innerHTML='Add at least 2 cycles for estimate.'; }
+}
+function deleteCycle(id){cycles=cycles.filter(c=>c.id!==id); localStorage.setItem('ss_cycles',JSON.stringify(cycles)); renderCycleList(); renderDashboard();}
+document.getElementById('symPain').addEventListener('input', e=>document.getElementById('symPainVal').innerText=e.target.value);
+document.getElementById('saveSym').addEventListener('click', ()=>{
+ const dt=document.getElementById('symDate').value||new Date().toISOString().slice(0,16); const cat=document.getElementById('symCat').value; const desc=document.getElementById('symDesc').value; const pain=document.getElementById('symPain').value; const mood=document.getElementById('symMood').value; const tags=document.getElementById('symTags').value; const msg=document.getElementById('symMsg');
+ if(!desc){msg.innerText='Description required'; msg.style.color='red'; return;}
+ symptoms.push({id:Date.now(), dt, cat, desc, pain:parseInt(pain), mood, tags}); localStorage.setItem('ss_symptoms',JSON.stringify(symptoms)); msg.innerText='Saved!'; msg.style.color='green'; document.getElementById('symDesc').value=''; renderSymList(); renderDashboard(); renderInsights();
+});
+function renderSymList(){
+ const list=document.getElementById('symList'); const filter=document.getElementById('filterCat').value; let filtered=symptoms; if(filter!=='all') filtered=symptoms.filter(s=>s.cat===filter); filtered.sort((a,b)=>new Date(b.dt)-new Date(a.dt));
+ if(filtered.length===0){list.innerHTML='<p class=text-xs text-gray-500>No entries.</p>'; const dash=document.getElementById('dashSymptoms'); if(dash) dash.innerHTML='No symptoms logged'; return;}
+ list.innerHTML=filtered.map(s=>`<div class="border p-2 rounded-lg text-xs"><div class="flex justify-between"><b>${s.dt}</b><span>${s.cat} | pain ${s.pain} | ${s.mood}</span></div><div class="mt-1">${s.desc} ${s.tags?`<i>#${s.tags}</i>`:''}</div><div class="mt-1"><button onclick="deleteSym(${s.id})" class="text-red-500">Delete</button></div></div>`).join('');
+ const dash=document.getElementById('dashSymptoms'); if(dash) dash.innerHTML=filtered.slice(0,3).map(s=>`${s.dt.split('T')[0]}: ${s.desc}`).join('<br>');
+}
+function deleteSym(id){symptoms=symptoms.filter(s=>s.id!==id); localStorage.setItem('ss_symptoms',JSON.stringify(symptoms)); renderSymList(); renderInsights(); renderDashboard();}
+document.getElementById('filterCat').addEventListener('change', renderSymList);
+function renderInsights(){
+ const box=document.getElementById('insightsBox');
+ if(symptoms.length===0 && cycles.length===0){box.innerHTML='<div class="bg-white border p-5 card text-sm text-gray-500">Add records to see patterns.</div>'; return;}
+ let insights=[]; const freq={}; symptoms.forEach(s=>{freq[s.desc.toLowerCase()]=(freq[s.desc.toLowerCase()]||0)+1;}); for(let k in freq){ if(freq[k]>=3) insights.push(`You recorded "${k}" ${freq[k]} times. Consider discussing recurring pattern with clinician.`); }
+ const painEntries=symptoms.filter(s=>s.pain>=7); if(painEntries.length>=2) insights.push(`You recorded high pain (${painEntries.length} entries >=7). If pain disrupts daily life, seek medical advice. Trigger: ${painEntries.map(p=>p.pain).join(', ')}`);
+ if(cycles.length>=3){const sorted=[...cycles].sort((a,b)=>new Date(a.start)-new Date(b.start)); let diffs=[]; for(let i=1;i<sorted.length;i++) diffs.push((new Date(sorted[i].start)-new Date(sorted[i-1].start))/(1000*60*60*24)); const max=Math.max(...diffs), min=Math.min(...diffs); if(max-min>7) insights.push(`Cycle lengths varied ${Math.round(min)} to ${Math.round(max)} days (diff >7). Variation common, but persistent irregularity may benefit from clinical discussion.`);}
+ const lowMood=symptoms.filter(s=>s.mood==='Low' || s.mood==='Anxious').length; if(lowMood>=3) insights.push(`Low/anxious mood ${lowMood} times. Consider self-care and trusted person/professional if persistent.`);
+ if(insights.length===0) insights.push('No strong patterns yet. Keep tracking for 2-3 cycles.');
+ box.innerHTML=insights.map((ins,i)=>`<div class="bg-white border p-4 card text-sm"><p class="font-bold text-xs text-[#0F766E]">Observation ${i+1}</p><p class="mt-1">${ins}</p><p class="text-[10px] mt-2 text-gray-500">Observation from your records, not diagnosis.</p></div>`).join('');
+}
+function renderDashboard(){
+ renderCycleList(); renderSymList();
+ const canvas=document.getElementById('trendCanvas'); if(!canvas) return; const ctx=canvas.getContext('2d'); ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle='#F0FDF4'; ctx.fillRect(0,0,canvas.width,canvas.height);
+ if(symptoms.length===0){ctx.fillStyle='#6B7280'; ctx.font='12px sans-serif'; ctx.fillText('No data for chart - add symptoms',10,100); return;}
+ const sorted=[...symptoms].sort((a,b)=>new Date(a.dt)-new Date(b.dt)).slice(-10); ctx.strokeStyle='#0F766E'; ctx.beginPath(); sorted.forEach((s,i)=>{const x=20+i*(560/(sorted.length-1||1)); const y=180-s.pain*15; if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);}); ctx.stroke(); ctx.fillStyle='#0F766E'; sorted.forEach((s,i)=>{const x=20+i*(560/(sorted.length-1||1)); const y=180-s.pain*15; ctx.beginPath(); ctx.arc(x,y,3,0,2*Math.PI); ctx.fill();});
+}
+function renderLearn(filter='all'){
+ const grid=document.getElementById('learnGrid'); let data=learnData; if(filter!=='all') data=learnData.filter(d=>d.cat===filter);
+ grid.innerHTML=data.map(d=>{const txt=currentLang==='hi'?d.hi: currentLang==='kn'?d.kn: d.en; return `<div class="bg-white border p-5 card"><p class="text-xs font-bold text-[#0F766E]">${d.cat.toUpperCase()}</p><h3 class="font-semibold mt-1">${d.title}</h3><p class="text-xs mt-2 text-gray-700">${txt}</p><a href="${d.link}" target="_blank" class="text-xs mt-3 inline-block text-[#0F766E] underline">WHO Source</a></div>`;}).join('');
+}
+document.querySelectorAll('.learnF').forEach(b=>b.addEventListener('click', e=>{
+ document.querySelectorAll('.learnF').forEach(x=>{x.classList.remove('bg-[#0F766E]','text-white'); x.classList.add('bg-white','border');});
+ e.target.classList.add('bg-[#0F766E]','text-white'); e.target.classList.remove('bg-white','border');
+ renderLearn(e.target.dataset.learn);
+}));
+document.getElementById('searchCare').addEventListener('click', ()=>{
+ const loc=document.getElementById('locInput').value.trim(); const res=document.getElementById('findResults');
+ if(!loc){res.innerHTML='<p class=text-red-500>Enter city/PIN</p>'; return;}
+ const query=encodeURIComponent(`gynecologist women's health clinic near ${loc}`); const url=`https://www.google.com/maps/search/${query}`;
+ res.innerHTML=`<p>Near <b>${loc}</b></p><a href="${url}" target="_blank" class="mt-2 inline-block bg-white border px-4 py-2 rounded-full text-xs">Open Google Maps</a>`;
+});
+document.getElementById('copySOS').addEventListener('click', ()=>{navigator.clipboard.writeText(document.getElementById('sosMsg').value).then(()=>alert('Copied!'));});
+document.getElementById('exportJSON').addEventListener('click', ()=>{const data={cycles, symptoms, exportedAt:new Date().toISOString()}; const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='swasthya_sakhi_data.json'; a.click();});
+document.getElementById('exportCSV').addEventListener('click', ()=>{let csv='type,date,category,description,pain,mood,tags,flow\n'; cycles.forEach(c=>{csv+=`cycle,${c.start},,,${c.pain},,,${c.flow}\n`;}); symptoms.forEach(s=>{csv+=`symptom,${s.dt},${s.cat},"${s.desc}",${s.pain},${s.mood},"${s.tags}"\n`;}); const blob=new Blob([csv],{type:'text/csv'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='swasthya_sakhi_data.csv'; a.click();});
+document.getElementById('clearAll').addEventListener('click', ()=>{if(confirm('Delete all local data?')){localStorage.removeItem('ss_cycles'); localStorage.removeItem('ss_symptoms'); cycles=[]; symptoms=[]; renderCycleList(); renderSymList(); renderInsights(); renderDashboard();}});
+let breathInterval=null;
+document.getElementById('breathBtn').addEventListener('click', ()=>{
+ const circle=document.getElementById('breathCircle'); const txt=document.getElementById('breathText'); const btn=document.getElementById('breathBtn');
+ if(breathInterval){clearInterval(breathInterval); breathInterval=null; btn.innerText='Start'; circle.innerText='Breathe'; txt.innerText='Click start'; return;}
+ let phase=0; const phases=['Inhale 4s','Hold 4s','Exhale 4s','Hold 4s']; btn.innerText='Stop';
+ breathInterval=setInterval(()=>{txt.innerText=phases[phase%4]; circle.style.transform= phase%4===0 ? 'scale(1.2)' : phase%4===2 ? 'scale(0.9)' : 'scale(1)'; circle.innerText=phases[phase%4]; phase++;},4000);
+});
+document.getElementById('chatSend').addEventListener('click', sendChat);
+document.getElementById('chatInput').addEventListener('keydown', e=>{if(e.key==='Enter') sendChat();});
+function sendChat(){
+ const input=document.getElementById('chatInput'); const box=document.getElementById('chatBox'); const q=input.value.trim().toLowerCase(); if(!q) return;
+ box.innerHTML+=`<p class="bg-[#0F766E] text-white p-2 rounded ml-6">You: ${input.value}</p>`;
+ let ans='I am rule-based assistant. I can help with: How to track cycle, how to log symptoms, what is PCOS, where is Learn, how to export.';
+ if(q.includes('cycle')||q.includes('period')) ans='To track cycle: Cycle section > Enter Start Date > flow > pain > Save. After 2 cycles estimate appears.';
+ else if(q.includes('symptom')||q.includes('pain')) ans='To log symptom: Journal > date > category > description > pain > mood > Save. Tags are for discussion.';
+ else if(q.includes('pcos')) ans='PCOS awareness: irregular periods etc. Needs clinician. See Learn > PCOS.';
+ else if(q.includes('emergency')||q.includes('help')) ans='If immediate danger: Call 112. Kiran helpline 1800-599-0019. SOS does NOT auto-send.';
+ box.innerHTML+=`<p class="bg-gray-100 p-2 rounded mr-6">Assistant: ${ans}</p>`; input.value=''; box.scrollTop=box.scrollHeight;
+}
+document.querySelectorAll('.nav-btn').forEach(b=>b.addEventListener('click', ()=>go(b.dataset.nav)));
+document.getElementById('langSelect').addEventListener('change', e=>applyLanguage(e.target.value));
+document.getElementById('emergencyBtn').addEventListener('click', ()=>go('safety'));
+document.getElementById('langSelect').value=currentLang;
+applyLanguage(currentLang);
+go('home');
+renderCycleList(); renderSymList(); renderLearn();
+</script>
+</body>
+</html>
